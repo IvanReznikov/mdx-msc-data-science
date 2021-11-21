@@ -6,5 +6,12 @@ L7. Dimensionality Reduction:
 - iris.data
 - WA_Fn-UseC_-Telco-Customer-Churn.csv
 
-L8,9. Linear Regression:
+L8. Linear Regression:
+- cardekho.csv
+- 50_Startups.csv
+- advertising.csv
+
+L9. Multiple Linear Regression
+- kc_house_data.csv
+- advertising.csv
 - cardekho.csv
