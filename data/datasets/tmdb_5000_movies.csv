@@ -1,0 +1,151 @@
+id,title,overview,genres,release_date,budget,revenue,runtime,vote_average,vote_count
+1,The Desert Run 1,A story set in Dubai about friendship.,Action,2002-10-15,131000000,220000000,123,7.5,4300
+2,Marina Lights 1,A story set in Abu Dhabi about adventure.,Comedy,2005-02-15,105000000,487000000,153,7.9,3817
+3,Gold Souk Heist 1,A story set in Sharjah about mystery.,Drama,2012-02-15,168000000,225000000,130,8.6,1885
+4,Burj Chronicles 1,A story set in the UAE about love.,Sci-Fi,2019-08-15,81000000,411000000,134,5.1,2244
+5,Camel Trek 1,A story set in Dubai about ambition.,Thriller,2002-07-15,177000000,32000000,165,7.2,4146
+6,Palm Jumeirah Nights 1,A story set in Abu Dhabi about survival.,Romance,2004-10-15,140000000,177000000,86,8.5,4854
+7,Dubai Drift 1,A story set in Sharjah about friendship.,Horror,2016-10-15,152000000,98000000,116,4.2,2360
+8,Sheikh Zayed Road 1,A story set in the UAE about adventure.,Animation,2013-02-15,148000000,341000000,172,8.8,3736
+9,Falcon Eye 1,A story set in Dubai about mystery.,Action,2010-04-15,181000000,185000000,87,4.9,2374
+10,Miracle Garden 1,A story set in Abu Dhabi about love.,Comedy,2011-02-15,137000000,238000000,113,7.3,1173
+11,Desert Rose Cafe 1,A story set in Sharjah about ambition.,Drama,2023-06-15,32000000,416000000,142,5.6,3516
+12,The Dhow Voyages 1,A story set in the UAE about survival.,Sci-Fi,2019-10-15,87000000,402000000,164,5.4,1968
+13,Jumeirah Jane 1,A story set in Dubai about friendship.,Thriller,2005-09-15,127000000,70000000,163,4.0,1039
+14,Burj Khalifa Day 1,A story set in Abu Dhabi about adventure.,Romance,2019-10-15,156000000,332000000,127,7.9,3540
+15,Skyline Dubai 1,A story set in Sharjah about mystery.,Horror,2013-06-15,101000000,284000000,83,4.6,741
+16,The Falcon Hunter 1,A story set in the UAE about love.,Animation,2010-09-15,131000000,236000000,165,7.8,2847
+17,Al Ain Stories 1,A story set in Dubai about ambition.,Action,2014-08-15,113000000,277000000,89,5.5,2818
+18,Abu Dhabi Express 1,A story set in Abu Dhabi about survival.,Comedy,2015-01-15,70000000,218000000,178,6.0,1112
+19,Ras Al Khaimah Wind 1,A story set in Sharjah about friendship.,Drama,2024-11-15,7000000,117000000,162,5.4,338
+20,Fujairah Coast 1,A story set in the UAE about adventure.,Sci-Fi,2022-04-15,87000000,331000000,92,7.9,2807
+21,Sharjah Arts 1,A story set in Dubai about mystery.,Thriller,2024-08-15,82000000,203000000,121,4.8,4079
+22,Ajman Harbor 1,A story set in Abu Dhabi about love.,Romance,2008-01-15,22000000,45000000,157,6.3,3625
+23,UAE Circuit 1,A story set in Sharjah about ambition.,Horror,2017-02-15,180000000,251000000,173,7.5,803
+24,The Qasr 1,A story set in the UAE about survival.,Animation,2012-06-15,34000000,191000000,103,7.2,1542
+25,Liwa Oasis 1,A story set in Dubai about friendship.,Action,2015-05-15,191000000,44000000,114,8.8,634
+26,Dubai Mall Tales 1,A story set in Abu Dhabi about adventure.,Comedy,2009-11-15,99000000,350000000,125,8.8,1366
+27,The Metro Line 1,A story set in Sharjah about mystery.,Drama,2006-10-15,52000000,358000000,158,5.4,2274
+28,Sustainable City 1,A story set in the UAE about love.,Sci-Fi,2001-02-15,89000000,451000000,92,5.0,2306
+29,The Creek 1,A story set in Dubai about ambition.,Thriller,2018-04-15,161000000,290000000,134,8.3,925
+30,Dubai Frame 1,A story set in Abu Dhabi about survival.,Romance,2000-10-15,99000000,360000000,146,7.1,2188
+31,The Desert Run 2,A story set in Sharjah about friendship.,Horror,2003-08-15,19000000,325000000,142,6.1,467
+32,Marina Lights 2,A story set in the UAE about adventure.,Animation,2019-01-15,36000000,247000000,98,4.7,1682
+33,Gold Souk Heist 2,A story set in Dubai about mystery.,Action,2016-02-15,35000000,294000000,159,8.6,894
+34,Burj Chronicles 2,A story set in Abu Dhabi about love.,Comedy,2024-07-15,89000000,174000000,141,4.1,2975
+35,Camel Trek 2,A story set in Sharjah about ambition.,Drama,2003-12-15,84000000,241000000,126,4.4,3924
+36,Palm Jumeirah Nights 2,A story set in the UAE about survival.,Sci-Fi,2006-06-15,134000000,245000000,124,6.9,4692
+37,Dubai Drift 2,A story set in Dubai about friendship.,Thriller,2013-06-15,161000000,134000000,175,6.6,1691
+38,Sheikh Zayed Road 2,A story set in Abu Dhabi about adventure.,Romance,2021-06-15,57000000,11000000,116,8.5,4140
+39,Falcon Eye 2,A story set in Sharjah about mystery.,Horror,2013-02-15,61000000,277000000,111,7.4,587
+40,Miracle Garden 2,A story set in the UAE about love.,Animation,2002-04-15,49000000,330000000,153,7.8,3648
+41,Desert Rose Cafe 2,A story set in Dubai about ambition.,Action,2008-02-15,123000000,458000000,177,4.2,1189
+42,The Dhow Voyages 2,A story set in Abu Dhabi about survival.,Comedy,2003-07-15,109000000,186000000,110,8.0,4157
+43,Jumeirah Jane 2,A story set in Sharjah about friendship.,Drama,2024-04-15,41000000,476000000,143,6.6,1490
+44,Burj Khalifa Day 2,A story set in the UAE about adventure.,Sci-Fi,2022-04-15,198000000,468000000,98,4.2,864
+45,Skyline Dubai 2,A story set in Dubai about mystery.,Thriller,2007-06-15,193000000,496000000,95,7.7,4463
+46,The Falcon Hunter 2,A story set in Abu Dhabi about love.,Romance,2021-11-15,45000000,446000000,91,5.6,2618
+47,Al Ain Stories 2,A story set in Sharjah about ambition.,Horror,2000-10-15,67000000,331000000,121,4.5,1899
+48,Abu Dhabi Express 2,A story set in the UAE about survival.,Animation,2018-09-15,76000000,131000000,80,5.2,4687
+49,Ras Al Khaimah Wind 2,A story set in Dubai about friendship.,Action,2000-02-15,14000000,415000000,169,4.9,808
+50,Fujairah Coast 2,A story set in Abu Dhabi about adventure.,Comedy,2009-08-15,144000000,437000000,84,5.6,1022
+51,Sharjah Arts 2,A story set in Sharjah about mystery.,Drama,2024-10-15,64000000,485000000,129,4.7,2528
+52,Ajman Harbor 2,A story set in the UAE about love.,Sci-Fi,2023-01-15,35000000,115000000,107,7.4,702
+53,UAE Circuit 2,A story set in Dubai about ambition.,Thriller,2024-02-15,60000000,253000000,172,6.9,3486
+54,The Qasr 2,A story set in Abu Dhabi about survival.,Romance,2010-03-15,172000000,402000000,82,7.7,3591
+55,Liwa Oasis 2,A story set in Sharjah about friendship.,Horror,2020-02-15,87000000,62000000,136,6.0,4641
+56,Dubai Mall Tales 2,A story set in the UAE about adventure.,Animation,2024-04-15,27000000,244000000,130,8.8,3331
+57,The Metro Line 2,A story set in Dubai about mystery.,Action,2013-04-15,192000000,462000000,129,6.8,173
+58,Sustainable City 2,A story set in Abu Dhabi about love.,Comedy,2003-08-15,168000000,53000000,152,6.1,744
+59,The Creek 2,A story set in Sharjah about ambition.,Drama,2000-12-15,34000000,298000000,98,8.0,4668
+60,Dubai Frame 2,A story set in the UAE about survival.,Sci-Fi,2010-06-15,127000000,392000000,164,4.5,138
+61,The Desert Run 3,A story set in Dubai about friendship.,Thriller,2007-10-15,50000000,398000000,126,6.7,1201
+62,Marina Lights 3,A story set in Abu Dhabi about adventure.,Romance,2019-08-15,186000000,434000000,155,6.1,3035
+63,Gold Souk Heist 3,A story set in Sharjah about mystery.,Horror,2002-05-15,185000000,213000000,91,8.3,3277
+64,Burj Chronicles 3,A story set in the UAE about love.,Animation,2006-06-15,106000000,124000000,106,7.7,1221
+65,Camel Trek 3,A story set in Dubai about ambition.,Action,2021-10-15,191000000,53000000,168,7.0,379
+66,Palm Jumeirah Nights 3,A story set in Abu Dhabi about survival.,Comedy,2008-02-15,39000000,412000000,111,4.7,1586
+67,Dubai Drift 3,A story set in Sharjah about friendship.,Drama,2022-12-15,120000000,83000000,95,4.8,1459
+68,Sheikh Zayed Road 3,A story set in the UAE about adventure.,Sci-Fi,2011-02-15,108000000,11000000,150,4.9,324
+69,Falcon Eye 3,A story set in Dubai about mystery.,Thriller,2020-01-15,86000000,295000000,131,6.0,3419
+70,Miracle Garden 3,A story set in Abu Dhabi about love.,Romance,2020-04-15,196000000,252000000,153,8.3,4381
+71,Desert Rose Cafe 3,A story set in Sharjah about ambition.,Horror,2013-01-15,99000000,91000000,168,5.2,1221
+72,The Dhow Voyages 3,A story set in the UAE about survival.,Animation,2016-07-15,189000000,208000000,108,5.9,293
+73,Jumeirah Jane 3,A story set in Dubai about friendship.,Action,2023-07-15,178000000,51000000,89,4.3,4175
+74,Burj Khalifa Day 3,A story set in Abu Dhabi about adventure.,Comedy,2010-12-15,138000000,50000000,163,8.5,4225
+75,Skyline Dubai 3,A story set in Sharjah about mystery.,Drama,2005-12-15,64000000,401000000,137,7.2,3908
+76,The Falcon Hunter 3,A story set in the UAE about love.,Sci-Fi,2015-10-15,148000000,68000000,162,6.6,2703
+77,Al Ain Stories 3,A story set in Dubai about ambition.,Thriller,2024-11-15,166000000,231000000,158,7.2,1956
+78,Abu Dhabi Express 3,A story set in Abu Dhabi about survival.,Romance,2006-04-15,13000000,70000000,123,6.1,2415
+79,Ras Al Khaimah Wind 3,A story set in Sharjah about friendship.,Horror,2015-03-15,68000000,184000000,130,5.6,1863
+80,Fujairah Coast 3,A story set in the UAE about adventure.,Animation,2010-05-15,37000000,343000000,103,8.7,1519
+81,Sharjah Arts 3,A story set in Dubai about mystery.,Action,2016-11-15,170000000,240000000,157,6.7,1675
+82,Ajman Harbor 3,A story set in Abu Dhabi about love.,Comedy,2024-11-15,98000000,326000000,100,6.7,4031
+83,UAE Circuit 3,A story set in Sharjah about ambition.,Drama,2019-08-15,15000000,144000000,97,5.0,3687
+84,The Qasr 3,A story set in the UAE about survival.,Sci-Fi,2014-09-15,101000000,430000000,171,7.1,703
+85,Liwa Oasis 3,A story set in Dubai about friendship.,Thriller,2015-02-15,124000000,363000000,138,8.7,468
+86,Dubai Mall Tales 3,A story set in Abu Dhabi about adventure.,Romance,2018-02-15,192000000,479000000,96,7.0,4014
+87,The Metro Line 3,A story set in Sharjah about mystery.,Horror,2011-10-15,199000000,397000000,173,5.3,4732
+88,Sustainable City 3,A story set in the UAE about love.,Animation,2018-08-15,10000000,48000000,132,4.9,3100
+89,The Creek 3,A story set in Dubai about ambition.,Action,2003-07-15,2000000,286000000,127,6.6,2356
+90,Dubai Frame 3,A story set in Abu Dhabi about survival.,Comedy,2018-10-15,184000000,399000000,131,7.0,2486
+91,The Desert Run 4,A story set in Sharjah about friendship.,Drama,2003-12-15,169000000,60000000,158,4.4,629
+92,Marina Lights 4,A story set in the UAE about adventure.,Sci-Fi,2012-08-15,146000000,209000000,172,7.4,3882
+93,Gold Souk Heist 4,A story set in Dubai about mystery.,Thriller,2018-05-15,147000000,449000000,161,5.4,3824
+94,Burj Chronicles 4,A story set in Abu Dhabi about love.,Romance,2019-05-15,106000000,157000000,111,4.7,830
+95,Camel Trek 4,A story set in Sharjah about ambition.,Horror,2002-12-15,111000000,219000000,153,7.6,1947
+96,Palm Jumeirah Nights 4,A story set in the UAE about survival.,Animation,2004-07-15,189000000,468000000,116,6.4,3912
+97,Dubai Drift 4,A story set in Dubai about friendship.,Action,2003-05-15,130000000,493000000,80,8.8,3602
+98,Sheikh Zayed Road 4,A story set in Abu Dhabi about adventure.,Comedy,2010-02-15,54000000,425000000,167,4.6,3203
+99,Falcon Eye 4,A story set in Sharjah about mystery.,Drama,2011-08-15,7000000,343000000,134,6.3,110
+100,Miracle Garden 4,A story set in the UAE about love.,Sci-Fi,2018-10-15,86000000,148000000,176,6.2,2319
+101,Desert Rose Cafe 4,A story set in Dubai about ambition.,Thriller,2000-04-15,103000000,459000000,153,4.6,3917
+102,The Dhow Voyages 4,A story set in Abu Dhabi about survival.,Romance,2009-12-15,9000000,439000000,148,8.2,1455
+103,Jumeirah Jane 4,A story set in Sharjah about friendship.,Horror,2001-02-15,133000000,499000000,82,7.3,3345
+104,Burj Khalifa Day 4,A story set in the UAE about adventure.,Animation,2015-02-15,136000000,448000000,166,5.2,193
+105,Skyline Dubai 4,A story set in Dubai about mystery.,Action,2011-02-15,171000000,388000000,160,8.6,1031
+106,The Falcon Hunter 4,A story set in Abu Dhabi about love.,Comedy,2007-08-15,181000000,19000000,80,4.3,76
+107,Al Ain Stories 4,A story set in Sharjah about ambition.,Drama,2020-08-15,196000000,400000000,176,8.2,1230
+108,Abu Dhabi Express 4,A story set in the UAE about survival.,Sci-Fi,2006-01-15,134000000,400000000,176,7.9,4642
+109,Ras Al Khaimah Wind 4,A story set in Dubai about friendship.,Thriller,2021-09-15,164000000,419000000,124,5.0,248
+110,Fujairah Coast 4,A story set in Abu Dhabi about adventure.,Romance,2002-02-15,139000000,252000000,133,7.2,3738
+111,Sharjah Arts 4,A story set in Sharjah about mystery.,Horror,2002-11-15,90000000,78000000,161,5.0,3686
+112,Ajman Harbor 4,A story set in the UAE about love.,Animation,2000-04-15,20000000,355000000,132,7.1,4902
+113,UAE Circuit 4,A story set in Dubai about ambition.,Action,2012-01-15,14000000,308000000,80,8.4,259
+114,The Qasr 4,A story set in Abu Dhabi about survival.,Comedy,2011-09-15,82000000,87000000,117,4.9,504
+115,Liwa Oasis 4,A story set in Sharjah about friendship.,Drama,2009-12-15,118000000,229000000,134,7.2,3931
+116,Dubai Mall Tales 4,A story set in the UAE about adventure.,Sci-Fi,2021-07-15,89000000,73000000,104,5.5,4732
+117,The Metro Line 4,A story set in Dubai about mystery.,Thriller,2010-07-15,107000000,350000000,105,8.7,3263
+118,Sustainable City 4,A story set in Abu Dhabi about love.,Romance,2003-02-15,92000000,254000000,149,6.4,2049
+119,The Creek 4,A story set in Sharjah about ambition.,Horror,2003-02-15,194000000,67000000,174,5.5,1426
+120,Dubai Frame 4,A story set in the UAE about survival.,Animation,2015-06-15,157000000,305000000,120,6.1,3191
+121,The Desert Run 5,A story set in Dubai about friendship.,Action,2003-05-15,168000000,109000000,174,5.6,2962
+122,Marina Lights 5,A story set in Abu Dhabi about adventure.,Comedy,2023-01-15,60000000,209000000,127,5.1,2396
+123,Gold Souk Heist 5,A story set in Sharjah about mystery.,Drama,2002-07-15,70000000,283000000,138,7.2,3524
+124,Burj Chronicles 5,A story set in the UAE about love.,Sci-Fi,2014-08-15,123000000,158000000,104,6.7,3947
+125,Camel Trek 5,A story set in Dubai about ambition.,Thriller,2004-06-15,106000000,313000000,132,6.6,1835
+126,Palm Jumeirah Nights 5,A story set in Abu Dhabi about survival.,Romance,2020-09-15,112000000,443000000,92,6.5,4609
+127,Dubai Drift 5,A story set in Sharjah about friendship.,Horror,2018-07-15,54000000,400000000,104,8.2,1606
+128,Sheikh Zayed Road 5,A story set in the UAE about adventure.,Animation,2009-06-15,9000000,58000000,85,8.2,406
+129,Falcon Eye 5,A story set in Dubai about mystery.,Action,2020-01-15,16000000,141000000,136,4.9,1703
+130,Miracle Garden 5,A story set in Abu Dhabi about love.,Comedy,2018-04-15,14000000,371000000,170,8.1,122
+131,Desert Rose Cafe 5,A story set in Sharjah about ambition.,Drama,2017-11-15,83000000,186000000,150,7.0,810
+132,The Dhow Voyages 5,A story set in the UAE about survival.,Sci-Fi,2016-02-15,102000000,183000000,130,9.0,4794
+133,Jumeirah Jane 5,A story set in Dubai about friendship.,Thriller,2011-10-15,85000000,156000000,157,7.5,3453
+134,Burj Khalifa Day 5,A story set in Abu Dhabi about adventure.,Romance,2018-05-15,185000000,320000000,113,5.0,103
+135,Skyline Dubai 5,A story set in Sharjah about mystery.,Horror,2018-07-15,93000000,82000000,151,8.2,871
+136,The Falcon Hunter 5,A story set in the UAE about love.,Animation,2023-12-15,191000000,278000000,100,9.0,4203
+137,Al Ain Stories 5,A story set in Dubai about ambition.,Action,2016-02-15,101000000,224000000,164,4.4,1993
+138,Abu Dhabi Express 5,A story set in Abu Dhabi about survival.,Comedy,2020-10-15,9000000,217000000,127,4.8,2373
+139,Ras Al Khaimah Wind 5,A story set in Sharjah about friendship.,Drama,2007-03-15,49000000,453000000,174,5.2,271
+140,Fujairah Coast 5,A story set in the UAE about adventure.,Sci-Fi,2004-04-15,39000000,245000000,179,6.5,2952
+141,Sharjah Arts 5,A story set in Dubai about mystery.,Thriller,2000-02-15,54000000,122000000,164,7.2,4225
+142,Ajman Harbor 5,A story set in Abu Dhabi about love.,Romance,2013-08-15,81000000,335000000,159,4.3,3826
+143,UAE Circuit 5,A story set in Sharjah about ambition.,Horror,2018-05-15,148000000,270000000,168,8.2,1725
+144,The Qasr 5,A story set in the UAE about survival.,Animation,2008-06-15,106000000,384000000,148,6.5,4267
+145,Liwa Oasis 5,A story set in Dubai about friendship.,Action,2010-11-15,61000000,293000000,92,5.7,4258
+146,Dubai Mall Tales 5,A story set in Abu Dhabi about adventure.,Comedy,2014-06-15,169000000,266000000,131,6.0,569
+147,The Metro Line 5,A story set in Sharjah about mystery.,Drama,2024-12-15,126000000,315000000,119,5.7,928
+148,Sustainable City 5,A story set in the UAE about love.,Sci-Fi,2007-03-15,52000000,13000000,140,6.2,4640
+149,The Creek 5,A story set in Dubai about ambition.,Thriller,2010-04-15,29000000,299000000,136,5.4,86
+150,Dubai Frame 5,A story set in Abu Dhabi about survival.,Romance,2004-09-15,105000000,317000000,151,7.1,4909

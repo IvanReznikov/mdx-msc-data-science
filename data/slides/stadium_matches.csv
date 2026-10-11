@@ -1,0 +1,25 @@
+match_id,match_date,kickoff_time,competition,matchday,is_derby,home_league_position,home_points_last_5,home_win_streak,days_since_last_home_match,key_player_injured,away_team_popularity_rank,away_fanbase_traveling_size_avg,head_to_head_avg_attendance_last_3yrs,is_nationally_televised,broadcast_channel,day_of_week,is_school_break,weeks_into_season,avg_ticket_price,season_ticket_holders_count,dynamic_pricing_active,promo_discount_active,temp_c,weather_condition,attendance
+2026-DXB-M01-HOME,2026-01-14,20:00,League,20,0,5,14,4,8,0,2,2800,33522,1,Pay-TV,Sunday,1,12,75.0,20365,0,0,27.0,sunny,32565
+2026-DXB-M02-HOME,2026-02-07,21:00,League,2,1,8,4,0,6,0,4,2200,32470,0,None,Saturday,1,32,60.0,21096,1,0,27.9,sunny,29411
+2026-DXB-M03-HOME,2026-03-28,21:00,League,25,0,13,9,0,6,0,6,1500,30633,0,None,Saturday,1,23,60.0,20768,0,0,39.9,sunny,23898
+2026-DXB-M04-HOME,2026-04-14,15:00,Domestic Cup,20,0,2,13,2,9,1,8,900,30932,0,None,Sunday,0,28,60.0,21095,1,0,32.8,sunny,24797
+2026-DXB-M05-HOME,2026-05-28,18:30,League,18,0,4,3,4,4,1,3,2400,32397,1,Pay-TV,Saturday,1,26,45.0,20628,0,1,27.6,sunny,29190
+2026-DXB-M06-HOME,2026-06-21,21:00,League,1,0,14,10,1,6,0,7,1100,31308,1,Pay-TV,Saturday,1,28,60.0,20147,0,0,34.9,cloudy,25925
+2026-DXB-M07-HOME,2026-07-14,15:00,League,29,1,9,8,3,8,1,1,3300,27545,0,None,Sunday,1,22,45.0,20971,1,1,34.2,cloudy,27373
+2026-DXB-M08-HOME,2026-08-07,15:00,Domestic Cup,25,0,10,15,2,9,0,5,1800,28676,1,Pay-TV,Saturday,1,27,45.0,20273,0,0,27.4,sunny,32498
+2026-DXB-M09-HOME,2026-01-14,20:00,Domestic Cup,18,0,6,3,1,11,0,2,2800,23362,0,None,Saturday,0,28,90.0,21042,1,0,27.4,cloudy,15527
+2026-DXB-M10-HOME,2026-02-14,21:00,Domestic Cup,14,1,9,9,1,11,0,4,2200,27115,0,None,Sunday,1,9,60.0,21012,1,0,26.1,sunny,29574
+2026-DXB-M11-HOME,2026-03-28,15:00,Domestic Cup,6,0,14,13,4,11,0,6,1500,26010,1,Pay-TV,Saturday,1,6,75.0,21479,0,1,14.0,rainy,24669
+2026-DXB-M12-HOME,2026-04-28,15:00,League,22,0,6,8,3,8,0,8,900,25015,0,None,Saturday,0,30,75.0,22604,1,0,22.6,sunny,23189
+2026-DXB-M13-HOME,2026-05-21,20:00,Domestic Cup,23,0,11,5,1,11,0,3,2400,23345,0,None,Sunday,0,15,60.0,21129,0,0,28.1,cloudy,19092
+2026-DXB-M14-HOME,2026-06-21,15:00,Domestic Cup,17,0,14,9,4,4,0,7,1100,25331,1,Pay-TV,Saturday,1,9,45.0,21276,1,0,18.3,cloudy,27809
+2026-DXB-M15-HOME,2026-07-28,15:00,League,12,1,9,9,3,12,0,1,3300,25178,1,Pay-TV,Saturday,0,8,60.0,19653,0,1,27.6,cloudy,28913
+2026-DXB-M16-HOME,2026-08-07,21:00,Domestic Cup,21,0,6,14,2,5,0,5,1800,25747,0,None,Sunday,0,15,45.0,20782,0,0,24.9,cloudy,26158
+2026-DXB-M17-HOME,2026-01-07,20:00,League,10,0,11,13,3,11,0,2,2800,25845,0,None,Saturday,0,21,75.0,21449,0,0,29.1,sunny,27593
+2026-DXB-M18-HOME,2026-02-07,18:30,League,24,1,7,15,1,4,1,4,2200,27823,0,None,Saturday,1,21,75.0,21499,0,0,25.0,sunny,32551
+2026-DXB-M19-HOME,2026-03-14,20:00,Domestic Cup,10,0,4,14,0,9,0,6,1500,25993,0,None,Sunday,0,31,90.0,21019,1,0,28.4,sunny,23939
+2026-DXB-M20-HOME,2026-04-21,15:00,League,27,0,8,3,0,13,0,8,900,23553,0,None,Saturday,0,29,90.0,20235,1,0,36.5,cloudy,15004
+2026-DXB-M21-HOME,2026-05-28,18:30,Domestic Cup,19,0,8,9,4,12,0,3,2400,26604,0,None,Saturday,1,4,45.0,22443,0,1,32.1,cloudy,28426
+2026-DXB-M22-HOME,2026-06-14,15:00,Domestic Cup,12,0,11,12,4,10,0,7,1100,27292,1,Pay-TV,Sunday,0,6,45.0,20655,0,0,32.7,sunny,30653
+2026-DXB-M23-HOME,2026-07-07,15:00,League,25,1,6,15,3,9,0,1,3300,27855,0,None,Saturday,1,12,90.0,20388,0,0,33.1,sunny,30844
+2026-DXB-M24-HOME,2026-08-21,15:00,League,2,0,3,2,2,5,0,5,1800,22444,1,Pay-TV,Saturday,1,14,75.0,20645,0,0,32.4,rainy,13527
