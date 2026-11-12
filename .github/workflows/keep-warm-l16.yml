@@ -1,0 +1,16 @@
+name: keep-warm L16 leaderboard
+# Free Render web services sleep after 15 min idle (~1 min cold start).
+# This pings the health endpoint every 10 min so the class never hits a cold
+# start. Set the repository variable L16_URL (Settings → Secrets and variables
+# → Variables → Actions) to the Render URL, e.g. https://bazario-l16-leaderboard.onrender.com
+on:
+  schedule:
+    - cron: "*/10 * * * *"
+  workflow_dispatch:
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping
+        if: vars.L16_URL != ''
+        run: curl -fsS --max-time 60 "${{ vars.L16_URL }}/api/health" >/dev/null && echo warm

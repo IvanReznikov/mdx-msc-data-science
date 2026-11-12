@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MDX-Bazario — W8L16 Leaderboard</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<div id="offline" class="offline hidden" aria-live="polite">⚠ You are offline — the leaderboard can’t update. Reconnecting…</div>
+<header>
+  <div class="brand">
+    <div class="logo" aria-hidden="true">
+      <svg viewBox="0 0 24 24" width="22" height="22"><rect x="3" y="12" width="4" height="9" rx="1"/><rect x="10" y="7" width="4" height="14" rx="1"/><rect x="17" y="3" width="4" height="18" rx="1"/></svg>
+    </div>
+    <div>
+      <h1>MDX-Bazario</h1>
+      <span class="sub">W8L16 · machine-learning leaderboard</span>
+    </div>
+  </div>
+  <div class="head-right">
+    <span id="deadline" class="deadline hidden"></span>
+    <nav>
+      <button id="tab-submit" class="tab active" onclick="show('submit')">Submit</button>
+      <button id="tab-leaderboard" class="tab" onclick="show('leaderboard')">Leaderboard</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- ============ SUBMIT TAB ============ -->
+  <section id="panel-submit">
+    <div class="grid">
+      <div class="card form-card">
+        <h2>Submit predictions</h2>
+        <div id="comp-cards" class="comp-cards"></div>
+        <form id="submit-form" onsubmit="event.preventDefault(); submitForm();" autocomplete="on">
+          <label for="student">Your name
+            <input id="student" name="student" placeholder="e.g. Ada Lovelace" autocomplete="name" spellcheck="false" autofocus>
+          </label>
+          <div id="dropzone" class="dropzone">
+            <input type="file" id="file" accept=".csv,text/csv">
+            <div class="dz-empty" id="dz-empty">
+              <strong>Drop your CSV here</strong>
+              <span class="dim">or click to browse — grab the <a id="sample-link" download>sample_submission</a> first</span>
+            </div>
+            <div class="dz-file hidden" id="dz-file">
+              <span id="dz-name">—</span>
+              <span class="dim" id="dz-size"></span>
+              <button type="button" class="ghost" onclick="event.stopPropagation(); clearFile()">✕ remove</button>
+            </div>
+          </div>
+          <button id="go" type="submit">Submit</button>
+        </form>
+        <div id="result" class="result hidden" aria-live="polite"></div>
+        <div id="scores" class="scores hidden">
+          <div class="chip"><span class="lbl">This submission</span><span id="cur-score">—</span></div>
+          <div class="chip best"><span class="lbl">Your best</span><span id="best-score">—</span></div>
+          <div class="chip"><span class="lbl">Rank</span><span id="cur-rank">—</span></div>
+          <div class="chip"><span class="lbl">Left in window</span><span id="cur-remaining">—</span></div>
+        </div>
+        <p class="dim format-hint" id="info-format"></p>
+      </div>
+
+      <div class="stack">
+        <div class="card comp-info">
+          <h2 id="info-title"></h2>
+          <p id="info-task"></p>
+          <p class="dim" id="info-data"></p>
+        </div>
+
+        <details class="card rules" open>
+          <summary>How it works</summary>
+          <ul>
+            <li>The visible score is computed on <b>half of the hidden rows</b>. Final standings after the deadline use the <b>other half</b> — exactly like Kaggle's public/private split, so probing the leaderboard is a losing strategy.</li>
+            <li>Max <b>__DAILY_CAP__ scored submissions per __WINDOW_MINUTES__ minutes</b> (per person, per competition).</li>
+            <li>Your submission must be reproduced by a <b>seeded notebook in your course-repo fork</b> (commit <code>submit: w8l16</code>). The top-3 notebooks are reviewed before final standings are published.</li>
+            <li>Required baselines: beat <b>copy-last-week</b> (forecast) and beat the <b>train-set median</b> (customer value) or your score doesn't count for points.</li>
+            <li>Use the same name every time — that’s how your scores are tracked. The holdout truth is never published.</li>
+          </ul>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LEADERBOARD TAB ============ -->
+  <section id="panel-leaderboard" class="hidden">
+    <div class="lb-head">
+      <div id="lb-comp" class="segmented"></div>
+      <span class="dim" id="lb-note"></span>
+      <span class="dim" id="lb-ago"></span>
+      <button class="ghost" onclick="loadLB()">Refresh</button>
+    </div>
+    <div class="table-wrap">
+      <table id="lb-table">
+        <thead><tr><th>#</th><th>Name</th><th id="lb-score-col">Best score</th><th>Latest</th><th>Subs</th><th>Last (Dubai)</th></tr></thead>
+        <tbody id="lb-body"></tbody>
+      </table>
+    </div>
+    <p class="dim" id="lb-empty" style="display:none">No scored submissions yet — be the first.</p>
+  </section>
+</main>
+
+<script>
+const COMPS = __COMPS__;
+const REVEAL = __REVEAL__;
+const CLOSE_AT = "__CLOSE_AT__";
+let selectedComp = localStorage.getItem('l16_comp');
+if (!COMPS[selectedComp]) selectedComp = Object.keys(COMPS)[0];
+
+const fmt = (v, d = 4) => (typeof v === 'number' && isFinite(v) ? v.toFixed(d) : '—');
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+// ---------- name: cache in localStorage, prefill ----------
+const nameInput = document.getElementById('student');
+const savedName = localStorage.getItem('l16_name') || localStorage.getItem('l16_student') || '';
+if (savedName) nameInput.value = savedName;
+
+// ---------- competition selector cards (submit tab) ----------
+function renderCompCards() {
+  const el = document.getElementById('comp-cards');
+  el.innerHTML = '';
+  for (const [key, c] of Object.entries(COMPS)) {
+    const card = document.createElement('button');
+    card.type = 'button';
+    card.className = 'comp-card' + (key === selectedComp ? ' selected' : '');
+    card.onclick = () => { selectedComp = key; try { localStorage.setItem('l16_comp', key); } catch (e) {} renderCompCards(); renderSegmented(); compInfo(); };
+    card.innerHTML = `<span class="cc-emoji">${c.emoji}</span>
+      <span class="cc-body"><span class="cc-title">${esc(c.title)}</span>
+      <span class="cc-meta">${c.metric.toUpperCase()} · ${c.n} rows · target <code>${esc(c.target)}</code></span></span>
+      <span class="cc-check" aria-hidden="true">✓</span>`;
+    el.appendChild(card);
+  }
+}
+// ---------- segmented control (leaderboard tab) ----------
+function renderSegmented() {
+  const el = document.getElementById('lb-comp');
+  el.innerHTML = '';
+  for (const key of Object.keys(COMPS)) {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'seg' + (key === selectedComp ? ' active' : '');
+    b.textContent = (COMPS[key].emoji ? COMPS[key].emoji + ' ' : '') + key;
+    b.onclick = () => { selectedComp = key; try { localStorage.setItem('l16_comp', key); } catch (e) {} renderSegmented(); renderCompCards(); compInfo(); loadLB(); };
+    el.appendChild(b);
+  }
+}
+function compInfo() {
+  const c = COMPS[selectedComp] || {};
+  document.getElementById('info-title').textContent = (c.emoji || '') + ' ' + (c.title || '');
+  document.getElementById('info-task').textContent = c.task || '';
+  document.getElementById('info-data').textContent = 'Training data: ' + (c.data || '');
+  document.getElementById('info-format').innerHTML =
+    `Format: <code>${esc(c.id)},${esc(c.target)}</code> · exactly <b>${c.n ?? '—'}</b> rows, same order as the sample submission ` +
+    `(<a href="/api/sample/${selectedComp}" download>download it</a> · also in <code>2026/data/competitions/w8l16/</code> in your fork).`;
+  document.getElementById('sample-link').href = '/api/sample/' + selectedComp;
+  document.getElementById('lb-note').textContent = REVEAL
+    ? 'FINAL STANDINGS — private holdout scores'
+    : `Public leaderboard — computed on half of the hidden rows (${(c.metric || '').toUpperCase()}, lower is better)`;
+  document.getElementById('lb-score-col').textContent = REVEAL ? 'Private score' : 'Best score';
+}
+
+function show(tab) {
+  document.getElementById('panel-submit').classList.toggle('hidden', tab !== 'submit');
+  document.getElementById('panel-leaderboard').classList.toggle('hidden', tab !== 'leaderboard');
+  document.getElementById('tab-submit').classList.toggle('active', tab === 'submit');
+  document.getElementById('tab-leaderboard').classList.toggle('active', tab === 'leaderboard');
+  if (tab === 'leaderboard') loadLB();
+}
+
+// ---------- dropzone: drag & drop + client-side pre-checks ----------
+const dz = document.getElementById('dropzone');
+const fileInput = document.getElementById('file');
+['dragover', 'dragenter'].forEach(ev => dz.addEventListener(ev, e => { e.preventDefault(); dz.classList.add('drag'); }));
+['dragleave', 'drop'].forEach(ev => dz.addEventListener(ev, e => { e.preventDefault(); dz.classList.remove('drag'); }));
+dz.addEventListener('drop', e => { if (e.dataTransfer.files.length) setFile(e.dataTransfer.files[0]); });
+fileInput.addEventListener('change', () => { if (fileInput.files.length) setFile(fileInput.files[0]); });
+
+function setFile(f) {
+  if (!f.name.toLowerCase().endsWith('.csv')) { showResult('err', 'That file is not a CSV — export/save as .csv and try again.'); return; }
+  if (f.size > 2_000_000) { showResult('err', 'File larger than 2 MB — a submission is 90 or 600 rows.'); return; }
+  fileInput.files = new DataTransfer().files; // clear, we re-set below
+  const dt = new DataTransfer(); dt.items.add(f); fileInput.files = dt.files;
+  document.getElementById('dz-empty').classList.add('hidden');
+  document.getElementById('dz-file').classList.remove('hidden');
+  document.getElementById('dz-name').textContent = f.name;
+  document.getElementById('dz-size').textContent = (f.size / 1024).toFixed(1) + ' KB';
+  hideResult();
+}
+function clearFile() {
+  fileInput.value = '';
+  document.getElementById('dz-empty').classList.remove('hidden');
+  document.getElementById('dz-file').classList.add('hidden');
+}
+
+// instant browser-side check: header + row count (no request burned)
+async function preValidate(f) {
+  const c = COMPS[selectedComp];
+  const text = await f.text();
+  const lines = text.split(/\r?\n/).filter(l => l.trim() !== '');
+  if (lines.length < 2) return 'The file looks empty.';
+  const header = lines[0].split(',').map(h => h.trim().toLowerCase().replace(/^\ufeff/, ''));
+  if (header[0] !== c.id.toLowerCase() || header[1] !== c.target.toLowerCase() || header.length !== 2)
+    return `Header must be exactly \`${c.id},${c.target}\` (got \`${lines[0]}\`). Download the sample submission and fill only the target column.`;
+  if (lines.length - 1 !== c.n)
+    return `Expected exactly ${c.n} data rows, got ${lines.length - 1}. Keep every row from the sample submission.`;
+  return null;
+}
+
+// ---------- submit ----------
+function showResult(kind, msg) {
+  const box = document.getElementById('result');
+  box.classList.remove('hidden', 'ok', 'err', 'flat');
+  box.classList.add(kind);
+  box.textContent = msg;
+}
+function hideResult() { document.getElementById('result').classList.add('hidden'); }
+
+async function submitForm() {
+  const btn = document.getElementById('go');
+  const name = nameInput.value.trim();
+  hideResult();
+  if (!name) { showResult('err', 'Type your name first — scores are tracked by name.'); nameInput.focus(); return; }
+  const f = fileInput.files[0];
+  if (!f) { showResult('err', 'Choose (or drop) a CSV file first.'); return; }
+  btn.disabled = true; btn.textContent = 'Checking…';
+  try {
+    const problem = await preValidate(f);
+    if (problem) { showResult('err', problem); return; }
+    btn.textContent = 'Scoring…';
+    const fd = new FormData();
+    fd.append('student_id', name);
+    fd.append('comp', selectedComp);
+    fd.append('file', f);
+    const res = await fetch('/api/submit', { method: 'POST', body: fd });
+    let data = {};
+    try { data = await res.json(); } catch (e) { /* non-JSON error page */ }
+    if (!res.ok) { showResult('err', data.detail || `Rejected (HTTP ${res.status}).`); document.getElementById('scores').classList.add('hidden'); return; }
+    try { localStorage.setItem('l16_name', name); } catch (e) {}
+    showResult(data.improved ? 'ok' : 'flat', data.message || 'Accepted.');
+    document.getElementById('cur-score').textContent = fmt(data.current);
+    document.getElementById('best-score').textContent = fmt(data.best);
+    document.getElementById('cur-rank').textContent = data.rank != null ? '#' + data.rank : '—';
+    document.getElementById('cur-remaining').textContent = data.remaining_window ?? '—';
+    document.getElementById('scores').classList.remove('hidden');
+    clearFile();
+    loadLB();
+  } catch (e) {
+    showResult('err', navigator.onLine ? 'Network error — try again.' : 'You are offline — reconnect and try again.');
+  } finally {
+    btn.disabled = false; btn.textContent = 'Submit';
+  }
+}
+
+// ---------- leaderboard ----------
+const MEDALS = { 1: 'gold', 2: 'silver', 3: 'bronze' };
+let lastLB = null;
+async function loadLB() {
+  try {
+    const res = await fetch('/api/leaderboard');
+    const data = await res.json();
+    compInfo();
+    const comp = data[selectedComp] || {};
+    const rows = comp.rows || [];
+    const me = (localStorage.getItem('l16_name') || localStorage.getItem('l16_student') || '').trim();
+    const body = document.getElementById('lb-body');
+    body.innerHTML = '';
+    document.getElementById('lb-empty').style.display = rows.length ? 'none' : 'block';
+    for (const r of rows) {
+      const best = r.best ?? Infinity, latest = r.latest ?? best;
+      const better = latest < best, worse = latest > best;
+      const delta = better ? '▼' : (worse ? '▲' : '·');
+      const deltaCls = better ? 'delta-better' : (worse ? 'delta-worse' : 'delta-same');
+      const ts = String(r.latest_ts || '');
+      const tsGulf = ts ? new Intl.DateTimeFormat('en-GB', { timeZone: 'Asia/Dubai',
+        day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit', hour12: false }).format(new Date(ts)) : '—';
+      body.insertAdjacentHTML('beforeend',
+        `<tr class="${esc(r.student_id) === me ? 'me' : ''}">` +
+        `<td>${MEDALS[r.rank] ? `<span class="medal ${MEDALS[r.rank]}">${r.rank}</span>` : (r.rank ?? '—')}</td>` +
+        `<td class="who">${esc(r.student_id)}${esc(r.student_id) === me ? ' <span class="youtag">you</span>' : ''}</td>` +
+        `<td class="best">${fmt(r.best)}</td>` +
+        `<td class="${deltaCls}">${fmt(r.latest)} <span class="delta">${delta}</span></td>` +
+        `<td>${r.submissions ?? '—'}</td>` +
+        `<td class="dim">${ts ? tsGulf : '—'}</td></tr>`);
+    }
+    lastLB = Date.now();
+    updateAgo();
+  } catch (e) { /* offline: keep last render */ }
+}
+function updateAgo() {
+  const el = document.getElementById('lb-ago');
+  if (!lastLB) { el.textContent = ''; return; }
+  const s = Math.round((Date.now() - lastLB) / 1000);
+  el.textContent = s < 5 ? 'just updated' : `updated ${s < 60 ? s + 's' : Math.round(s / 60) + ' min'} ago`;
+}
+
+// ---------- deadline countdown ----------
+function tickDeadline() {
+  const el = document.getElementById('deadline');
+  if (!CLOSE_AT) return;
+  const ms = new Date(CLOSE_AT) - Date.now();
+  if (isNaN(ms)) return;
+  if (ms <= 0) { el.textContent = '⏱ closed — final standings'; el.classList.add('closed'); }
+  else {
+    const d = Math.floor(ms / 86400000), h = Math.floor(ms / 3600000) % 24,
+          m = Math.floor(ms / 60000) % 60, s = Math.floor(ms / 1000) % 60;
+    el.textContent = '⏱ closes in ' + (d ? d + 'd ' : '') + String(h).padStart(2,'0') + ':' + String(m).padStart(2,'0') + ':' + String(s).padStart(2,'0');
+  }
+  el.classList.remove('hidden');
+}
+
+// ---------- offline awareness ----------
+function updateOffline() { document.getElementById('offline').classList.toggle('hidden', navigator.onLine); }
+window.addEventListener('online', () => { updateOffline(); loadLB(); });
+window.addEventListener('offline', updateOffline);
+
+// ---------- boot ----------
+renderCompCards();
+renderSegmented();
+compInfo();
+loadLB();
+updateOffline();
+tickDeadline();
+setInterval(tickDeadline, 1000);
+setInterval(updateAgo, 5000);
+setInterval(() => { if (!document.getElementById('panel-leaderboard').classList.contains('hidden')) loadLB(); }, 30000);
+</script>
+</body>
+</html>

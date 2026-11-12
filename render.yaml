@@ -1,0 +1,27 @@
+# Render blueprint — W8L16 leaderboard (free plan, Docker runtime)
+# Deploys the same snapshot that would have gone to a HF Space.
+# Secrets (sync: false) are entered in the Render dashboard on first deploy:
+#   HF_TOKEN   — token that can READ ce1ebi/bazario-l16-keys and WRITE ce1ebi/bazario-l16-state
+#   SPLIT_SEED — 2026 (cohort seed; never public)
+services:
+  - type: web
+    name: bazario-l16-leaderboard
+    runtime: docker
+    plan: free
+    dockerContext: /private/competitions/w8l16/deploy/space
+    dockerfilePath: /private/competitions/w8l16/deploy/space/Dockerfile
+    healthCheckPath: /api/health
+    autoDeploy: false          # manual deploys only - this repo also feeds students
+    envVars:
+      - key: HF_TOKEN
+        sync: false
+      - key: KEYS_REPO
+        value: ce1ebi/bazario-l16-keys
+      - key: STATE_REPO
+        value: ce1ebi/bazario-l16-state
+      - key: SPLIT_SEED
+        sync: false
+      - key: WINDOW_CAP
+        value: "5"
+      - key: WINDOW_MINUTES
+        value: "15"
